@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/styles/reset.css">
+  <link rel="stylesheet" href="./assets/styles/index.css">
+  <script src="./assets/js/main.js" defer></script>
+  <title>MarLieDev | Newsletter sign-up form</title>
+
+</head>
+
+<body>
+  <main class="wrapper">
+    <h1 class="hidden">Newsletter sign-up form with success message</h1>
+    <!-- Sign-Up Form -->
+    <div class="signup-form">
+      <picture class="signup-form__image">
+        <source srcset="/assets/images/illustration-sign-up-desktop.svg" media="(min-width: 48rem)" />
+        <img src="/assets/images/illustration-sign-up-mobile.svg" alt="illustration of a tablet and statistics"
+          loading="lazy" />
+      </picture>
+      <div class="signup-form__content">
+        <h2>Stay updated!</h2>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+        <ul>
+          <li>Product discovery and building what matters</li>
+          <li>Measuring to ensure updates are a success</li>
+          <li>And much more!</li>
+        </ul>
+        <form class="signup-form__form" name="signup-form__form" id="signup-form" aria-label="E-Mail Address">
+          <label for="email">
+            <span>Email address</span>
+            <input id="email" type="email" name="email" placeholder="email@example.com" aria-label="E-Mail Address"
+              autocomplete="email" maxlength="60" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required=""
+              aria-required="true" />
+            <span class="error" aria-live="polite"></span>
+          </label>
+          <button type="submit">Subscribe to monthly newsletter</button>
+      </div>
+      </form>
+    </div>
+    <!-- Success Message -->
+    <div class="signup-form__success-message">
+      <img src="./assets/images/icon-success.svg" alt="Icon with a Checkmark" width="64" height="64">
+      <h2>Thanks for subscribing!</h2>
+      <p>A confirmation email has been sent to <span>ash@loremcompany.com</span>.
+        Please open it and click the button inside to confirm your subscription.</p>
+      <button class="button--dismiss">Dismiss message</button>
+    </div>
+    </div>
+
+  </main>
+  <!-- Attribution -->
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/marliedev">MarLieDev</a>.
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* ----------------- */
+/* CUSTOM PROPERTIES */
+/* ----------------- */
+:root {
+    /* container max width */
+    --container-max-width: 930px;
+    /* primary color */
+    --clr-tomato: hsl(4, 100%, 67%);
+    --clr-bean-red: hsl(355, 99%, 67%);
+    --clr-green: hsl(152, 100%, 31%);
+    --clr-dark-green: hsl(152, 100%, 16%);
+
+    /* neutral color */
+    --clr-dark-gray: hsl(234, 29%, 20%);
+    --clr-charcoal-gray: hsl(235, 18%, 26%);
+    --clr-gray: hsl(231, 7%, 60%);
+    --clr-white: hsl(0, 0%, 100%);
+
+    /* spacings */
+    --spacing-50: 4px;
+    --spacing-100: 8px;
+    --spacing-150: 14px;
+    --spacing-200: 16px;
+    --spacing-250: 20px;
+    --spacing-300: 32px;
+    --spacing-400: 40px;
+    --spacing-500: 48px;
+    --spacing-600: 64px;
+    --spacing-900: 124px;
+
+    /* border radius */
+    --border-radius: 16px;
+
+    /* font-sizes */
+    --fs-100: 13px;
+    --fs-200: 14px;
+    --fs-300: 16px;
+    --fs-400: 20px;
+    --fs-500: 24px;
+    --fs-600: 32px;
+    --fs-700: 36px;
+    --fs-800: 42px;
+    --fs-900: 56px;
+    /* font-family */
+    --ff-base: "Roboto", sans;
+}
+
+/* ------------------*/
+/*  SEMANTIC PRESETS */
+/* ----------------- */
+
+body {
+    background-color: var(--clr-charcoal-gray);
+    font-size: var(--fs-300);
+    font-family: var(--ff-base);
+
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+
+}
+
+h2 {
+    font-size: clamp(var(--fs-700), calc(var(--fs-700) + 1vw), var(--fs-900));
+    font-weight: 700;
+    line-height: 110%;
+    color: var(--clr-dark-gray);
+}
+
+p {
+    line-height: 150%;
+}
+
+button {
+    background: linear-gradient(140deg, var(--clr-bean-red), var(--clr-tomato), var(--clr-dark-gray), var(--clr-dark-gray)) no-repeat;
+    background-size: 300% 100%;
+    background-position: 100% 0%;
+    padding: var(--spacing-250) var(--spacing-200);
+    border-radius: calc(var(--border-radius) / 2);
+    color: var(--clr-white);
+    font-weight: 700;
+    box-shadow: none;
+    border: none;
+    margin-top: var(--spacing-100);
+    transition: background-position 1.2s cubic-bezier(0.5, 0, .5, 1), box-shadow .9s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background-position: 0 0;
+        box-shadow: 0px 8px 16px rgba(199, 71, 62, 0.7);
+    }
+
+    &:focus,
+    &:focus-visible {
+        outline: 2px solid var(--clr-dark-gray);
+        outline-offset: 2px;
+        background-position: 0 0;
+        box-shadow: 0px 8px 16px rgba(199, 71, 62, 0.7);
+    }
+}
+
+/* ------------------*/
+/*      HELPERS      */
+/* ----------------- */
+
+.hidden {
+    display: none;
+}
+
+/* ------------------------- */
+/*       SIGN-UP FORM        */
+/* ------------------------- */
+.signup-form {
+    background: var(--clr-white);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    max-width: var(--container-max-width);
+    width: 100%;
+
+    &.submitted {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+
+        .signup-form__image,
+        .signup-form__content {
+            opacity: 0;
+        }
+    }
+
+    /* starting properties for smoother animations */
+    @starting-style {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+}
+
+.signup-form__image {
+    width: 100%;
+    height: 200px;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    overflow: hidden;
+    transition: opacity .7s ease-in-out;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+
+}
+
+.signup-form__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-150);
+    padding: var(--spacing-300) var(--spacing-200);
+    color: var(--clr-charcoal-gray);
+    transition: opacity .7s ease-in-out;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        padding-bottom: .5rem;
+
+        li {
+            padding-left: 2.5rem;
+            padding-bottom: 0.75rem;
+            line-height: 120%;
+            background: url(../images/icon-list.svg) no-repeat left 0px;
+            background-size: 1.25rem;
+            margin-bottom: 0.25rem;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+
+}
+
+.signup-form__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+
+    label {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        >span {
+            font-weight: 600;
+            color: var(--clr-dark-gray);
+        }
+
+        input {
+            padding: var(--spacing-200);
+            border-radius: calc(var(--border-radius) / 2);
+            border: 1px solid var(--clr-gray);
+            outline-color: var(--clr-gray);
+            opacity: .7;
+
+            &:focus,
+            &:focus-visible {
+                border-color: var(--clr-dark-gray);
+                outline-color: var(--clr-dark-gray);
+            }
+
+            &:not(:placeholder-shown):valid {
+                outline: 1px solid green;
+                background: rgba(0, 158, 84, .1)
+            }
+
+            &:not(:placeholder-shown):invalid {
+                outline: 1px solid var(--clr-tomato);
+                background: rgba(255, 98, 87, .1);
+
+            }
+        }
+
+
+    }
+
+
+}
+
+.signup-form__success-message {
+    position: absolute;
+    opacity: 0;
+    display: none;
+    flex-direction: column;
+    padding: var(--spacing-600) var(--spacing-300);
+    gap: var(--spacing-300);
+    background: var(--clr-white);
+    transition: opacity .7s, display .7s, transform .7s;
+    transition-behavior: allow-discrete;
+    transition-timing-function: cubic-bezier(0.5, 0, 0.25, 1);
+    max-width: 500px;
+
+    &.show {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+
+        /* starting properties for smoother animations */
+        @starting-style {
+            opacity: 0;
+
+        }
+    }
+
+    p span {
+        font-weight: 700;
+    }
+
+    button {
+        margin-top: auto;
+    }
+
+}
+
+
+
+@media (width > 48rem) {
+    main {
+        align-items: center;
+
+    }
+
+    .signup-form {
+        flex-direction: row-reverse;
+        max-height: 640px;
+        height: 100%;
+        padding: var(--spacing-300);
+        transition: opacity .7s, transform .7s, display .7s;
+        transition-behavior: allow-discrete;
+        transition-timing-function: cubic-bezier(0.5, 0, 0.25, 1);
+        box-shadow: 0px 4px 48px rgb(15, 16, 28, .8);
+
+        &.submitted {
+            display: none;
+            opacity: 0;
+            transform: scale(.9);
+
+            @starting-style {
+                opacity: 1;
+            }
+        }
+
+        @starting-style {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+
+    }
+
+    .signup-form__image {
+        width: 50%;
+        max-height: 640px;
+        height: 100%;
+        overflow: hidden;
+        border-radius: var(--border-radius);
+    }
+
+    .signup-form__content {
+        justify-content: space-around;
+        padding: var(--spacing-600);
+    }
+
+    .signup-form__success-message {
+        border-radius: var(--border-radius);
+        box-shadow: 0px 4px 48px rgb(15, 16, 28, .8);
+        transition: opacity .7s, display .7s, transform .7s;
+        transition-behavior: allow-discrete;
+        transition-timing-function: cubic-bezier(0.5, 0, 0.25, 1);
+        max-width: 500px;
+        transform: scale(.9);
+        height: auto;
+
+        &.show {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+
+            @starting-style {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+/* Full height for Smartphone Devices */
+@media (height < 48rem) {
+    .signup-form {
+        height: 100%;
+    }
+
+    .signup-form__success-message {
+        height: 100%;
+    }
+}
+
+/* ----------------- */
+/* ATTRIBUTION */
+/* ----------------- */
+.attribution {
+    font-size: var(--fs-100);
+    position: absolute;
+    width: 100%;
+    bottom: 0.25rem;
+    text-align: center;
+    color: var(--clr-gray);
+
+    a {
+        color: var(--clr-tomato);
+        font-weight: 400;
+    }
+}
