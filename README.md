@@ -17,6 +17,8 @@
 -   Display-Property Animation
 -   Different Style for Mobile & Desktop
 -   Simple JS Click- & Form-Event-Handling as well as classlist-Manipulation
+-   Simple Client Side Form Validation
+-
 
 ## Author
 
