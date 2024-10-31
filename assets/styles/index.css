@@ -67,7 +67,7 @@ main {
 }
 
 h2 {
-    font-size: clamp(var(--fs-700), calc(var(--fs-700) + 1vw), var(--fs-900));
+    font-size: clamp(var(--fs-700), calc(var(--fs-700) + 1.25vw), var(--fs-900));
     font-weight: 700;
     line-height: 110%;
     color: var(--clr-dark-gray);
@@ -284,7 +284,7 @@ button {
         flex-direction: row-reverse;
         max-height: 640px;
         height: 100%;
-        padding: var(--spacing-300);
+        padding: var(--spacing-300) var(--spacing-300) var(--spacing-300) 0;
         transition: opacity .7s, transform .7s, display .7s;
         transition-behavior: allow-discrete;
         transition-timing-function: cubic-bezier(0.5, 0, 0.25, 1);
